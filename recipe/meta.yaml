@@ -53,7 +53,7 @@ about:
   home: https://github.com/earthobservations/wetterdienst
   license: MIT
   license_family: MIT
-  license_file: LICENSE.rst
+  license_file: LICENSE
   summary: Open weather data for humans
   doc_url: https://wetterdienst.readthedocs.io/
   dev_url: https://github.com/earthobservations/wetterdienst
