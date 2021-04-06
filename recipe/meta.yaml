@@ -44,6 +44,7 @@ requirements:
     - deprecation
     - fastapi
     - pytz
+    - requests-ftp
 
 test:
   imports:
