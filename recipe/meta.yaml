@@ -54,12 +54,6 @@ requirements:
     - plotly
     - dash-core-components
 
-
-### Packages found in the meta.yaml but not found by inspection:
-- cachetools
-- deprecation
-
-
 test:
   imports:
     - wetterdienst
