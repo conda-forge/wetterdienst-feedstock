@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.16.1" %}
+{% set version = "0.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7c75b899faada5c14223f0dcaff154181e8ada76086b09640122a5a89a725d87
+  sha256: d16e3b7c23a8c37e7b91679c23712a4ee9067388b3858d789c53e7cf69eeac06
 
 build:
   noarch: python
@@ -45,6 +45,14 @@ requirements:
     - fastapi
     - pytz
     - requests-ftp
+    - measurement
+    - dash
+    - rapidfuzz
+    - dash-bootstrap-components
+    - dash-html-components
+    - urllib3
+    - plotly
+    - dash-core-components
 
 test:
   imports:
