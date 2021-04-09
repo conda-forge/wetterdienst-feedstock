@@ -46,6 +46,19 @@ requirements:
     - pytz
     - requests-ftp
     - measurement
+    - dash
+    - rapidfuzz
+    - dash-bootstrap-components
+    - dash-html-components
+    - urllib3
+    - plotly
+    - dash-core-components
+
+
+### Packages found in the meta.yaml but not found by inspection:
+- cachetools
+- deprecation
+
 
 test:
   imports:
