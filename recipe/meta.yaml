@@ -45,6 +45,7 @@ requirements:
     - fastapi
     - pytz
     - requests-ftp
+    - measurement
 
 test:
   imports:
