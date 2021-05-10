@@ -42,17 +42,12 @@ requirements:
     - PyPDF2
     - tabulate
     - deprecation
-    - fastapi
-    - pytz
-    - requests-ftp
+    - importlib_metadata
     - measurement
-    - dash
     - rapidfuzz
-    - dash-bootstrap-components
-    - dash-html-components
-    - urllib3
-    - plotly
-    - dash-core-components
+    - Pint
+    - aenum
+    - requests-ftp
 
 test:
   imports:
