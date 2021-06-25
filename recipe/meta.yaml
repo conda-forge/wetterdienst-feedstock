@@ -14,8 +14,8 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
-    - wetterdienst = wetterdienst.cli:run
-    - wddump = wetterdienst.dwd.radar.cli:wddump
+    - wetterdienst = wetterdienst.ui.cli:cli
+    - wddump = wetterdienst.provider.dwd.radar.cli:wddump
 
 requirements:
   host:
@@ -27,13 +27,12 @@ requirements:
     - pandas
     - numpy
     - scipy
-    - h5py
     - cachetools
-    - docopt
     - munch
     - dateparser
     - beautifulsoup4
     - requests
+    - requests-ftp
     - python-dateutil
     - dogpile.cache
     - appdirs
@@ -47,7 +46,9 @@ requirements:
     - rapidfuzz
     - Pint
     - aenum
-    - requests-ftp
+    - click
+    - click-params
+    - cloup
 
 test:
   imports:
