@@ -49,7 +49,6 @@ requirements:
     - click
     - click-params
     - cloup
-    - tomlkit
 
 test:
   imports:
