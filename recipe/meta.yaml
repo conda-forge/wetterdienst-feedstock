@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.20.0" %}
+{% set version = "0.20.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0d2d31fdd76eeeecb15102fdcb24ec6ba17d03d0f65aff74164ac70402f5e883
+  sha256: 510ce4b96672b977af9e7f7333c5d623cbc4a2ff92de54bbb1b4ae9facd49299
 
 build:
   noarch: python
@@ -49,7 +49,6 @@ requirements:
     - click
     - click-params
     - cloup
-    - tomlkit
 
 test:
   imports:
