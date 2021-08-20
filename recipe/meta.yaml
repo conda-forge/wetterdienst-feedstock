@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.20.3" %}
+{% set version = "0.20.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 387687a248d986ce383ef576a79d54d58e8d6a834feedd9b86ec8c227840fa53
+  sha256: b322baa96379dc2c98126b9926df924d847214cd9fce3bfd2dcefcda24e5c612
 
 build:
   noarch: python
