@@ -39,7 +39,7 @@ requirements:
     - PyPDF2
     - tabulate
     - deprecation
-    - importlib_metadata # [py<37]
+    - importlib_metadata  # [py<37]
     - measurement
     - rapidfuzz
     - Pint
