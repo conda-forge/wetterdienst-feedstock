@@ -19,29 +19,27 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.7
     - pip
     - poetry
   run:
-    - python >=3.6
+    - python >=3.7
     - pandas
     - numpy
     - scipy
     - cachetools
-    - munch
     - dateparser
     - beautifulsoup4
     - requests
     - requests-ftp
     - python-dateutil
-    - dogpile.cache
     - appdirs
     - lxml
     - tqdm
     - PyPDF2
     - tabulate
     - deprecation
-    - importlib_metadata
+    - importlib_metadata # [py<37]
     - measurement
     - rapidfuzz
     - Pint
@@ -49,6 +47,8 @@ requirements:
     - click
     - click-params
     - cloup
+    - fsspec
+    - aiohttp
 
 test:
   imports:
