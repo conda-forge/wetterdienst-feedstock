@@ -52,7 +52,6 @@ requirements:
     # additional
     - environs
     - timezonefinder
-    - pkg_resources
 
 test:
   imports:
