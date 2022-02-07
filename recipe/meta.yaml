@@ -49,6 +49,8 @@ requirements:
     - cloup
     - fsspec
     - aiohttp
+    # additional
+    - environs
 
 test:
   imports:
