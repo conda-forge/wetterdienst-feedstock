@@ -148,4 +148,6 @@ Feedstock Maintainers
 =====================
 
 * [@kmuehlbauer](https://github.com/kmuehlbauer/)
+* [@gutzbenj](https://github.com/gutzbenj/)
+* [@amotl](https://github.com/amotl/)
 
