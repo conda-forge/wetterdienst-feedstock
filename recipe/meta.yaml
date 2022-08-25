@@ -28,7 +28,8 @@ requirements:
     - numpy
     - scipy
     - cachetools
-    - dateparser
+    - dataclass-wizard
+    - dateparser   
     - beautifulsoup4
     - requests
     - requests-ftp
