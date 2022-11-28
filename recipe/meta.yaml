@@ -27,20 +27,14 @@ requirements:
     - pandas
     - numpy
     - scipy
-    - cachetools
-    - dataclass-wizard
     - dateparser
-    - beautifulsoup4
     - requests
-    - requests-ftp
     - python-dateutil
     - appdirs
     - lxml
     - tqdm
     - PyPDF2
     - tabulate
-    - deprecation
-    - importlib_metadata
     - measurement
     - rapidfuzz
     - Pint
@@ -54,6 +48,15 @@ requirements:
     - environs
     - timezonefinder
     - scikit-learn
+    - plotly
+    - dash-bootstrap-components
+    - fastapi
+    - utm
+    - shapely
+    - pytz
+    - dash
+    - autovizwidget
+    - finesse
 
 test:
   imports:
