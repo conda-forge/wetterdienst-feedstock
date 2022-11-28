@@ -48,15 +48,9 @@ requirements:
     - environs
     - timezonefinder
     - scikit-learn
-    - plotly
-    - dash-bootstrap-components
-    - fastapi
     - utm
     - shapely
     - pytz
-    - dash
-    - autovizwidget
-    - finesse
 
 test:
   imports:
