@@ -21,7 +21,7 @@ requirements:
   host:
     - python >=3.7
     - pip
-    - poetry
+    - poetry-core
   run:
     - python >=3.7
     - pandas
