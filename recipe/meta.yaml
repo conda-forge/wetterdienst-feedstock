@@ -34,7 +34,7 @@ requirements:
     - requests
     - requests-ftp
     - python-dateutil
-    - appdirs
+    - platformdirs
     - lxml
     - tqdm
     - PyPDF2
