@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 791ea5f7cccc2d3d8bc558c414f1caf12d91a5ec9f978995c3e49f44d78208c5
+  patches:
+    - 0001-remove-eccodes.patch
 
 build:
   noarch: python
