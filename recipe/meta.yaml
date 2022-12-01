@@ -58,7 +58,6 @@ test:
     - wetterdienst
   commands:
     - pip check
-    - wddump --help
     - wetterdienst --help
   requires:
     - pip
