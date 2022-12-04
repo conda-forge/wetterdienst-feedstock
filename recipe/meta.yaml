@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
   sha256: 10037ed5453e0569ed2599d847ce246617e2e6e123dc31a0a32fd8646f9c85e1
 
 build:
@@ -24,32 +24,32 @@ requirements:
     - poetry-core
   run:
     - python >=3.8,<3.12
-    - pandas >=1.3,<2.0
-    - numpy >=1.22,<2.0
-    - cachetools >=5.2,<6.0
-    - dateparser >=1.0,<2.0
-    - beautifulsoup4 >=4.9,<5.0
-    - requests >=2.20,<3.0
-    - python-dateutil >=2.8,<3.0
-    - appdirs >=1.4,<2.0
-    - lxml >=4.9.1,<5.0.0
-    - tqdm >=4.47,<5.0
-    - pypdf2 >=1.26,<2.0
-    - tabulate >=0.8,<0.9
-    - deprecation >=2.1,<3.0
-    - measurement >=3.2,<4.0
-    - rapidfuzz >=2.1,<3.0
-    - pint >=0.17,<0.18
     - aenum >=3.0,<4.0
-    - click >=8.0,<9.0
-    - click-params >=0.4,<0.5
-    - cloup >=1.0,<2.0
-    - fsspec >=2022.02,<2023.0
     - aiohttp >=3.8.1,<4.0.0
-    - timezonefinder >=6.1,<7.0
+    - beautifulsoup4 >=4.9,<5.0
+    - cachetools >=5.2,<6.0
+    - click-params >=0.4,<0.5
+    - click >=8.0,<9.0
+    - cloup >=1.0,<2.0
+    - dateparser >=1.0,<2.0
+    - deprecation >=2.1,<3.0
     - diskcache >=5.4.0,<6.0.0
     - environs >=9.4.0,<10.0.0
+    - fsspec >=2022.02,<2023.0
+    - lxml >=4.9.1,<5.0.0
+    - measurement >=3.2,<4.0
+    - numpy >=1.22,<2.0
+    - pandas >=1.3,<2.0
+    - pint >=0.17,<0.18
+    - platformdirs >=2,<3
+    - pypdf2 >=1.26,<2.0
+    - python-dateutil >=2.8,<3.0
+    - rapidfuzz >=2.1,<3.0
+    - requests >=2.20,<3.0
     - scikit-learn >=1.0.2,<2.0.0
+    - tabulate >=0.8,<0.9
+    - timezonefinder >=6.1,<7.0
+    - tqdm >=4.47,<5.0
 
 test:
   imports:
