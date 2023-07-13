@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
   sha256: d8e4c8dc07f7110cdda9a9dc4e2170d5fb8c3880a6030a2f2b0bcc0edfc171fc
+  patches:
+    - 0001-pypdf.patch
 
 build:
   noarch: python
