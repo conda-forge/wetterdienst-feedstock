@@ -56,7 +56,7 @@ requirements:
     - tzdata
     - xlsx2csv >=0.8.1,<0.9
     - xlsxwriter >=3.0.9,<3.2
-    - eccodes >=1.5.2,<1.7
+    - python-eccodes >=1.5.2,<1.7
 
 test:
   imports:
