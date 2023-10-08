@@ -23,7 +23,6 @@ requirements:
     - poetry-core
     - pip
   run:
-    - eccodes >=1.5.2,<1.7
     - python >=3.9.0,<4.0.0,!=3.9.7,<3.12
     - aenum >=3,<3.2
     - aiohttp >=3.8,<3.9
@@ -54,7 +53,7 @@ requirements:
     - tabulate >=0.8,<0.10
     - timezonefinder <7
     - tqdm >=4,<5
-    - tzdata *
+    - tzdata
     - xlsx2csv >=0.8.1,<0.9
     - xlsxwriter >=3.0.9,<3.2
     - python-eccodes >=1.5.2,<1.7
