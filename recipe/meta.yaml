@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.62.0" %}
+{% set version = "0.63.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 2e6646bc9af7b2b5ea4fdd2d9febf2dd93f6bf94889de2523d8e211514a70e0a
+  sha256: 358447236b0dec29bc3be25185dec1835111faff0fc8afe7e22c695e7ce000e8
 
 build:
   noarch: python
@@ -23,6 +23,7 @@ requirements:
     - poetry-core
     - pip
   run:
+    - eccodes >=1.5.2,<1.7
     - python >=3.9.0,<4.0.0,!=3.9.7,<3.12
     - aenum >=3,<3.2
     - aiohttp >=3.8,<3.9
@@ -53,7 +54,7 @@ requirements:
     - tabulate >=0.8,<0.10
     - timezonefinder <7
     - tqdm >=4,<5
-    - tzdata
+    - tzdata *
     - xlsx2csv >=0.8.1,<0.9
     - xlsxwriter >=3.0.9,<3.2
     - python-eccodes >=1.5.2,<1.7
