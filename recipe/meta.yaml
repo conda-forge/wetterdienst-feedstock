@@ -19,7 +19,7 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python >=3.9,<3.12
     - poetry-core
     - pip
   run:
@@ -52,8 +52,8 @@ requirements:
     - scikit-learn >=1.0.2,<1.4
     - stamina >=23,<24
     - tabulate >=0.8,<0.10
-    - timezonefinder <7
     - tqdm >=4,<5
+    - tzfpy >=0.15.2,<1
     - xlsx2csv >=0.8.1,<0.9
     - xlsxwriter >=3.0.9,<3.2
     - python-eccodes >=1.5.2,<1.7
