@@ -23,7 +23,6 @@ requirements:
     - poetry-core
     - pip
   run:
-    - tzfpy >=0.15.2,<1
     - python >=3.9.0,<4.0.0,!=3.9.7,<3.12
     - aenum >=3,<3.2
     - aiohttp >=3.8,<3.9
