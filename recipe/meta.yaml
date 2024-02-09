@@ -23,7 +23,6 @@ requirements:
     - poetry-core
     - pip
   run:
-    - portion >=2.4.2
     - python >=3.9.0,<4.0.0,!=3.9.7,<3.13
     - aenum >=3,<3.2
     - aiohttp >=3.8,<3.10
@@ -44,6 +43,7 @@ requirements:
     - pint >=0.17,<0.24
     - platformdirs <5
     - polars >=0.20.6,<0.20.7
+    - portion >=2.4.2
     - pyarrow >=13,<16
     - pypdf >=3.12.1,<4.1
     - python-dateutil <3
