@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
   sha256: bcfc54817a644937b59d5502957b20dc4bef5a28f65bce9610f68be5bf2d239b
+  patches:
+    - 0001-fix-eccodes.patch
 
 build:
   noarch: python
