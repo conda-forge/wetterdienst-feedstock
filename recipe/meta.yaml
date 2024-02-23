@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.73.0" %}
+{% set version = "0.74.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: bcfc54817a644937b59d5502957b20dc4bef5a28f65bce9610f68be5bf2d239b
-  patches:
-    - 0001-fix-eccodes.patch
+  sha256: cf2d9d000f6b76ead5871501a560d6a8252b024d9ec70bd22cdf2614321ba725
 
 build:
   noarch: python
@@ -37,7 +35,7 @@ requirements:
     - deprecation >=2.1,<3
     - diskcache >=5.4.0,<6
     - environs >=9.4.0,<11
-    - fsspec >=2023.1,<2023.13
+    - fsspec >=2023.1,<2024.3
     - lxml >=4.9.1,<6
     - measurement >=3.2,<4
     - numpy >=1.22,<1.27
@@ -55,8 +53,6 @@ requirements:
     - tabulate >=0.8,<0.10
     - tqdm >=4,<5
     - tzfpy >=0.15.2,<1
-    - xlsx2csv >=0.8.1,<0.9
-    - xlsxwriter >=3.0.9,<3.2
   run_constrained:
     - crate >=0.30.1,<1
     - dash >=2.10,<2.16
@@ -86,6 +82,8 @@ requirements:
     - uvicorn >=0.14,<1
     - wradlib >=2.0.1,<3
     - xarray >=2023.1,<2024.2
+    - xlsx2csv >=0.8.1,<0.9
+    - xlsxwriter >=3.0.9,<3.2
     - xradar >=0.2,<0.5
     - zarr >=2.13,<3
 
