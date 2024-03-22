@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.78.0" %}
+{% set version = "0.79.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: be58b1519f3e9b6e81a85e7153fd9f759c1fc0ef801b9c499297c7e1053502b7
+  sha256: 06e5dd96bbe4d473cc27ff4342af6ddecfc0f757d1c52f89d1de26e5aec76e91
 
 build:
   noarch: python
@@ -35,6 +35,8 @@ requirements:
     - deprecation >=2.1,<3
     - diskcache >=5.4.0,<6
     - environs >=9.4.0,<11
+    # for python < 3.10 but we want to stay noarch: python
+    - eval-type-backport >=0.1.3,<0.2.0
     - fsspec >=2023.1,<2024.3
     - lxml >=4.9.1,<6
     - measurement >=3.2,<4
