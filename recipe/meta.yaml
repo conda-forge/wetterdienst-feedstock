@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.86.0" %}
+{% set version = "0.87.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 6029c282f889faf88603f250100e73db77acb27f736b558ad9c0a8792a4187b6
+  sha256: 9bf5507885da778b6540bf2b0a6aa996bab8443dbc3dc4b7f8c717d54b509494
 
 build:
   noarch: python
@@ -23,6 +23,7 @@ requirements:
     - poetry-core
     - pip
   run:
+    - pydantic >=2.7.3,<3.0.0
     - python >=3.9,<4.0
     - aenum >=3,<3.2
     - aiohttp >=3.8,<3.10
