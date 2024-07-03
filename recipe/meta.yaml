@@ -77,6 +77,7 @@ requirements:
     - scipy >=1.9,<1.13
     - shapely >=2,<3
     - sqlalchemy >=2,<2.1
+    - sqlalchemy-cratedb >=0.37.0,<1
     - statsmodels >=0.14.1
     - streamlit >=1.27,<2
     - utm >=0.7,<1
