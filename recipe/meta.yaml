@@ -58,7 +58,6 @@ requirements:
     - tqdm >=4,<5
     - tzfpy >=0.15.2,<1
   run_constrained:
-    - crate >=0.30.1,<1
     - duckdb >=0.9
     - python-eccodes >=1.5.2,<1.7
     - fastapi >=0.95.1,<0.110
