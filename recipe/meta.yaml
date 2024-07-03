@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.88.0" %}
+{% set version = "0.89.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 02505bc8a0013f61814f2593c8a446ec22697f8ba1970e0ec1faa0eda8579688
+  sha256: 2e2c5474199d6d2b387d7a201ebbc981c534a29f62792828a61358b90a3e6230
 
 build:
   noarch: python
@@ -52,13 +52,12 @@ requirements:
     - python-dateutil <3
     - rapidfuzz >=3.1,<4
     - requests >=2.20,<3
-    - scikit-learn >=1.0.2,<1.5
+    - scikit-learn >=1.0.2,<1.6
     - stamina >=23,<25
     - tabulate >=0.8,<0.10
     - tqdm >=4,<5
     - tzfpy >=0.15.2,<1
   run_constrained:
-    - crate >=0.30.1,<1
     - duckdb >=0.9
     - python-eccodes >=1.5.2,<1.7
     - fastapi >=0.95.1,<0.110
@@ -77,6 +76,7 @@ requirements:
     - scipy >=1.9,<1.13
     - shapely >=2,<3
     - sqlalchemy >=2,<2.1
+    - sqlalchemy-cratedb >=0.37.0,<1
     - statsmodels >=0.14.1
     - streamlit >=1.27,<2
     - utm >=0.7,<1
