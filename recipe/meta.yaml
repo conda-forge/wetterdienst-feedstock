@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.91.0" %}
+{% set version = "0.92.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 94596e66c038a16ae4e3f8990957b662c5658a771ada82376af1d881bcf95498
+  sha256: 2146488fd63b130369303e38f1c6329c854ca6f224473a3530cf4e06c85248fa
 
 build:
   noarch: python
@@ -23,7 +23,7 @@ requirements:
     - poetry-core
     - pip
   run:
-    - pydantic >=2.7.3,<3.0.0
+    - pydantic >=2.7.3
     - python >=3.9,<4.0
     - aenum >=3,<3.2
     - aiohttp >=3.8,<3.10
@@ -34,20 +34,20 @@ requirements:
     - click-params >=0.4.1,<5
     - cloup >=3.0.1,<4
     - deprecation >=2.1,<3
-    - diskcache >=5.4.0,<6
-    - environs >=9.4.0,<12
+    - diskcache >=5.4,<6
+    - environs >=9.4,<12
     # for python < 3.10 but we want to stay noarch: python
     - eval-type-backport >=0.1.3,<0.2.0
     - fsspec >=2023.1,<2024.3
     - lxml >=4.9.1,<6
     - measurement >=3.2,<4
     - numpy >=1.22,<1.27
-    - pillow >=10.3.0
+    - pillow >=10.3
     - pint >=0.17,<0.24
     - platformdirs <5
     - polars >=0.20.10
     - portion >=2.4.2
-    - pyarrow >=13,<16
+    - pyarrow >=13,<18
     - pypdf >=3.12.1,<4.1
     - python-dateutil <3
     - rapidfuzz >=3.1,<4
