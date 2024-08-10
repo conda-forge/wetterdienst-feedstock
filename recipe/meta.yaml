@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.93.0" %}
+{% set version = "0.94.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 28c602b4490836f7de7c48dbe02600d660fa42c504de9223a9c2214751a1a0b4
+  sha256: fd6161f1d1f5f70a508cb15b3f7f071c8e02ec1f3ce420d61e2f05817eec0708
 
 build:
   noarch: python
@@ -26,7 +26,7 @@ requirements:
     - pydantic >=2.7.3
     - python >=3.9,<4.0
     - aenum >=3,<3.2
-    - aiohttp >=3.8,<3.10
+    - aiohttp >=3.8,<3.11
     - backports-datetime-fromisoformat >=2,<3
     - beautifulsoup4 >=4.9,<5
     - cachetools >=5.2,<6
