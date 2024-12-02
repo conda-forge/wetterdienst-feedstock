@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
   sha256: 77c3786e45ace470301807f133c4340e9a898afe62cd3054ee2097f73e5d4293
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - wetterdienst = wetterdienst.ui.cli:cli
@@ -19,13 +19,13 @@ build:
 
 requirements:
   host:
-    - python >=3.9,<4.0
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
     - fastexcel >=0.10.4
     - pydantic >=2.7.3
-    - python >=3.9,<4.0
+    - python >={{ python_min }},<4.0
     - aenum >=3
     - aiohttp >=3.8
     - backports-datetime-fromisoformat >=2,<3
@@ -97,6 +97,7 @@ test:
     - wetterdienst --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/earthobservations/wetterdienst
