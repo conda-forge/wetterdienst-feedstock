@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.97.0" %}
+{% set version = "0.98.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 77c3786e45ace470301807f133c4340e9a898afe62cd3054ee2097f73e5d4293
+  sha256: ba75bc4db2b8a457d36393eee9a4a2d33cbf4ed61166a0dc42e191766624b189
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - wetterdienst = wetterdienst.ui.cli:cli
