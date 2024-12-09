@@ -21,7 +21,7 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - poetry-core
+    - hatchling
     - pip
   run:
     - fastexcel >=0.10.4
