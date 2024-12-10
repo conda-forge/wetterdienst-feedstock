@@ -101,26 +101,27 @@ outputs:
         - python {{ python_min }}
         - pip
 
-  - name: {{ name }}-with-cratedb
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - python >={{ python_min }}
-        - {{ pin_subpackage(name, exact=True) }}
-        - pandas >=2
-        - sqlalchemy-cratedb
+  # sqlalchemy-cratedb not on conda-forge
+  # - name: {{ name }}-with-cratedb
+  #   build:
+  #     noarch: python
+  #   requirements:
+  #     host:
+  #       - python {{ python_min }}
+  #     run:
+  #       - python >={{ python_min }}
+  #       - {{ pin_subpackage(name, exact=True) }}
+  #       - pandas >=2
+  #       - sqlalchemy-cratedb
 
-    test:
-      imports:
-        - wetterdienst
-      commands:
-        - pip check
-      requires:
-        - python {{ python_min }}
-        - pip
+  #   test:
+  #     imports:
+  #       - wetterdienst
+  #     commands:
+  #       - pip check
+  #     requires:
+  #       - python {{ python_min }}
+  #       - pip
 
   - name: {{ name }}-with-duckdb
     build:
@@ -253,27 +254,27 @@ outputs:
         - python {{ python_min }}
         - pip
 
-  - name: {{ name }}-with-influxdb
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - python >={{ python_min }}
-        - {{ pin_subpackage(name, exact=True) }}
-        - influxdb >=5.3
-        - influxdb-client >=1.18
-        - influxdb3-python >=0.3
+  # - name: {{ name }}-with-influxdb
+  #   build:
+  #     noarch: python
+  #   requirements:
+  #     host:
+  #       - python {{ python_min }}
+  #     run:
+  #       - python >={{ python_min }}
+  #       - {{ pin_subpackage(name, exact=True) }}
+  #       - influxdb >=5.3
+  #       - influxdb-client >=1.18
+  #       - influxdb3-python >=0.3
 
-    test:
-      imports:
-        - wetterdienst
-      commands:
-        - pip check
-      requires:
-        - python {{ python_min }}
-        - pip
+  #   test:
+  #     imports:
+  #       - wetterdienst
+  #     commands:
+  #       - pip check
+  #     requires:
+  #       - python {{ python_min }}
+  #       - pip
 
   - name: {{ name }}-with-interpolation
     build:
