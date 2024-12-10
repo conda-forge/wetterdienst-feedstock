@@ -88,7 +88,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - pdbufr >=0.10.2
         - pybufrkit >=0.2
 
@@ -109,7 +109,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - pandas >=2
         - sqlalchemy-cratedb
 
@@ -130,7 +130,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - duckdb >=0.9
         - pandas >=2
 
@@ -151,7 +151,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - eccodes >=1.5.2
 
     test:
@@ -171,7 +171,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - xlsxwriter >=3.0.9
 
     test:
@@ -191,7 +191,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - duckdb >=0.9
         - plotly >=5.11
         - statsmodels >=0.14.1
@@ -214,7 +214,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - pandas >=2
         - sqlalchemy >=2
         - xarray >=2023.1
@@ -238,7 +238,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - pandas >=2
         - sqlalchemy >=2
         - xarray >=2023.1
@@ -261,7 +261,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - influxdb >=5.3
         - influxdb-client >=1.18
         - influxdb3-python >=0.3
@@ -283,7 +283,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - scipy >=1.14.1
         - shapely >=2
         - utm >=0.7
@@ -305,7 +305,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - ipython >=8.5
         - matplotlib >=3.3
 
@@ -326,7 +326,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - matplotlib >=3.3
 
     test:
@@ -346,7 +346,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - mysqlclient >=2
         - pandas >=2
 
@@ -367,7 +367,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - psycopg2-binary >=2
 
     test:
@@ -387,7 +387,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - h5py >=3.1
 
     test:
@@ -407,7 +407,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - pybufrkit >=0.2
         - wradlib >=2.0.1
         - xradar >=0.2
@@ -429,7 +429,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - fastapi >=0.95.1
         - httpx >=0.24
         - uvicorn >=0.14
@@ -451,7 +451,7 @@ outputs:
         - python {{ python_min }}
       run:
         - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - duckdb>=0.9
 
     test:
