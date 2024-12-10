@@ -3,7 +3,7 @@
 {% set python_min = "3.10" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}-split
   version: {{ version }}
 
 source:
@@ -11,63 +11,457 @@ source:
   sha256: ba75bc4db2b8a457d36393eee9a4a2d33cbf4ed61166a0dc42e191766624b189
 
 build:
+  number: 1
   noarch: python
-  number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-  entry_points:
-    - wetterdienst = wetterdienst.ui.cli:cli
-    - wddump = wetterdienst.provider.dwd.radar.cli:wddump
 
 requirements:
   host:
     - python {{ python_min }}
-    - hatchling
-    - pip
   run:
-    - fastexcel >=0.10.4
-    - pydantic >=2.7.3
-    - python >={{ python_min }},<4.0
-    - aenum >=3
-    - aiohttp >=3.8
-    # for python < 3.11 but we want to stay noarch
-    - backports-datetime-fromisoformat >=2
-    - beautifulsoup4 >=4.9
-    - cachetools >=5.2
-    - click >=8
-    - click-params >=0.4.1
-    - cloup >=3.0.1
-    - deprecation >=2.1
-    - diskcache >=5.4
-    - environs >=9.4
-    - fsspec >=2023.1
-    - lxml >=4.9.1
-    - measurement >=3.2
-    - numpy >=1.22
-    - pillow >=10.3
-    - pint >=0.17
-    - platformdirs
-    - polars >=1.0.0
-    - portion >=2.4.2
-    - pyarrow >=13
-    - pypdf >=3.12.1
-    - python-dateutil
-    - rapidfuzz >=3.1
-    - requests >=2.20
-    - scikit-learn >=1.0.2
-    - stamina >=23
-    - tabulate >=0.8
-    - tqdm >=4
-    - tzfpy >=0.15.2
+    - python >={{ python_min }}
 
-test:
-  imports:
-    - wetterdienst
-  commands:
-    - pip check
-    - wetterdienst --help
-  requires:
-    - pip
-    - python {{ python_min }}
+outputs:
+  - name: {{ name }}
+    script: install_wetterdienst.sh
+    build:
+      noarch: python
+      entry_points:
+        - wetterdienst = wetterdienst.ui.cli:cli
+        - wddump = wetterdienst.provider.dwd.radar.cli:wddump
+
+    requirements:
+      host:
+        - python {{ python_min }}
+        - hatchling
+        - pip
+      run:
+        - fastexcel >=0.10.4
+        - pydantic >=2.7.3
+        - python >={{ python_min }},<4.0
+        - aenum >=3
+        - aiohttp >=3.8
+        # for python < 3.11 but we want to stay noarch
+        - backports-datetime-fromisoformat >=2
+        - beautifulsoup4 >=4.9
+        - cachetools >=5.2
+        - click >=8
+        - click-params >=0.4.1
+        - cloup >=3.0.1
+        - deprecation >=2.1
+        - diskcache >=5.4
+        - environs >=9.4
+        - fsspec >=2023.1
+        - lxml >=4.9.1
+        - measurement >=3.2
+        - numpy >=1.22
+        - pillow >=10.3
+        - pint >=0.17
+        - platformdirs
+        - polars >=1.0.0
+        - portion >=2.4.2
+        - pyarrow >=13
+        - pypdf >=3.12.1
+        - python-dateutil
+        - rapidfuzz >=3.1
+        - requests >=2.20
+        - scikit-learn >=1.0.2
+        - stamina >=23
+        - tabulate >=0.8
+        - tqdm >=4
+        - tzfpy >=0.15.2
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+        - wetterdienst --help
+      requires:
+        - pip
+        - python {{ python_min }}
+
+  - name: {{ name }}-with-bufr
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - pdbufr >=0.10.2
+        - pybufrkit >=0.2
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-cratedb
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - pandas >=2
+        - sqlalchemy-cratedb
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-duckdb
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - duckdb >=0.9
+        - pandas >=2
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-eccodes
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - eccodes >=1.5.2
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-excel
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - xlsxwriter >=3.0.9
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-explorer
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - duckdb >=0.9
+        - plotly >=5.11
+        - statsmodels >=0.14.1
+        - streamlit >=1.27
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-export
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - pandas >=2
+        - sqlalchemy >=2
+        - xarray >=2023.1
+        - xlsxwriter >=3.0.9
+        - zarr >=2.13
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-export-without-zarr
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - pandas >=2
+        - sqlalchemy >=2
+        - xarray >=2023.1
+        - xlsxwriter >=3.0.9
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-influxdb
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - influxdb >=5.3
+        - influxdb-client >=1.18
+        - influxdb3-python >=0.3
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-interpolation
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - scipy >=1.14.1
+        - shapely >=2
+        - utm >=0.7
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-ipython
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - ipython >=8.5
+        - matplotlib >=3.3
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-mpl
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - matplotlib >=3.3
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-mysql
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - mysqlclient >=2
+        - pandas >=2
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-postgresql
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - psycopg2-binary >=2
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-radar
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - h5py >=3.1
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-radarplus
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - pybufrkit >=0.2
+        - wradlib >=2.0.1
+        - xradar >=0.2
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-restapi
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - fastapi >=0.95.1
+        - httpx >=0.24
+        - uvicorn >=0.14
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  - name: {{ name }}-with-sql
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - duckdb>=0.9
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
 
 about:
   home: https://github.com/earthobservations/wetterdienst
