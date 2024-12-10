@@ -307,7 +307,7 @@ outputs:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
         - ipython >=8.5
-        - matplotlib >=3.3
+        - matplotlib-base >=3.3
 
     test:
       imports:
@@ -327,7 +327,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - matplotlib >=3.3
+        - matplotlib-base >=3.3
 
     test:
       imports:
