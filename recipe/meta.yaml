@@ -473,6 +473,7 @@ about:
   dev_url: https://github.com/earthobservations/wetterdienst
 
 extra:
+  feedstock-name: wetterdienst
   recipe-maintainers:
     - xylar
     - amotl
