@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.98.0" %}
+{% set version = "0.99.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: ba75bc4db2b8a457d36393eee9a4a2d33cbf4ed61166a0dc42e191766624b189
+  sha256: 205ad07efa4dad7d9f90b074e29b5e52612513977a60aece99134d20a74dcbca
 
 build:
-  number: 1
+  number: 0
   noarch: python
 
 requirements:
@@ -35,22 +35,20 @@ outputs:
         - hatchling
         - pip
       run:
-        - fastexcel >=0.10.4
-        - pydantic >=2.7.3
         - python >={{ python_min }},<4.0
         - aenum >=3
-        - aiohttp >=3.8
         # for python < 3.11 but we want to stay noarch
         - backports-datetime-fromisoformat >=2
-        - beautifulsoup4 >=4.9
         - cachetools >=5.2
         - click >=8
         - click-params >=0.4.1
         - cloup >=3.0.1
-        - deprecation >=2.1
         - diskcache >=5.4
-        - environs >=9.4
+        - fastexcel >=0.10.4
         - fsspec >=2023.1
+        # fsspec[http]
+        - aiohttp !=4.0.0a0,!=4.0.0a1
+        
         - lxml >=4.9.1
         - measurement >=3.2
         - numpy >=1.22
@@ -60,10 +58,11 @@ outputs:
         - polars >=1.0.0
         - portion >=2.4.2
         - pyarrow >=13
+        - pydantic >=2.7.3
+        - pydantic-settings >=2.7.0
         - pypdf >=3.12.1
         - python-dateutil
         - rapidfuzz >=3.1
-        - requests >=2.20
         - scikit-learn >=1.0.2
         - stamina >=23
         - tabulate >=0.8
@@ -468,7 +467,7 @@ about:
   home: https://github.com/earthobservations/wetterdienst
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: LICENSE.md
   summary: Open weather data for humans
   doc_url: https://wetterdienst.readthedocs.io/
   dev_url: https://github.com/earthobservations/wetterdienst
