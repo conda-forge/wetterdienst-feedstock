@@ -35,7 +35,6 @@ outputs:
         - hatchling
         - pip
       run:
-        - fastexcel >=0.10.4
         - python >={{ python_min }},<4.0
         - aenum >=3
         # for python < 3.11 but we want to stay noarch
@@ -45,6 +44,7 @@ outputs:
         - click-params >=0.4.1
         - cloup >=3.0.1
         - diskcache >=5.4
+        - fastexcel >=0.10.4
         - fsspec >=2023.1
         # fsspec[http]
         - aiohttp !=4.0.0a0,!=4.0.0a1
