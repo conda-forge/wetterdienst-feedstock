@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.99.0" %}
+{% set version = "0.100.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 205ad07efa4dad7d9f90b074e29b5e52612513977a60aece99134d20a74dcbca
+  sha256: 0867f99904eba0498336f3b138360483ec1bd41a839605438bb91f8f07c60891
 
 build:
   number: 0
@@ -48,7 +48,7 @@ outputs:
         - fsspec >=2023.1
         # fsspec[http]
         - aiohttp !=4.0.0a0,!=4.0.0a1
-        
+
         - lxml >=4.9.1
         - measurement >=3.2
         - numpy >=1.22
