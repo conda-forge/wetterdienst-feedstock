@@ -308,7 +308,7 @@ outputs:
         - ipython >=8.5,<9
         - matplotlib-base >=3.3,<4
 
-     test:
+    test:
       imports:
         - wetterdienst
       commands:
