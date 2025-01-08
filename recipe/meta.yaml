@@ -36,38 +36,37 @@ outputs:
         - pip
       run:
         - python >={{ python_min }},<4.0
-        - aenum >=3
         # for python < 3.11 but we want to stay noarch
         - backports-datetime-fromisoformat >=2
-        - cachetools >=5.2
-        - click >=8
-        - click-params >=0.4.1
-        - cloup >=3.0.1
-        - diskcache >=5.4
-        - fastexcel >=0.10.4
-        - fsspec >=2023.1
+        - cachetools >=5.2,<6
+        - click >=8,<9
+        - click-params >=0.4.1,<1
+        - cloup >=3.0.1,<4
+        - diskcache >=5.4,<6
+        - fastexcel >=0.10.4,<1
+
+        - fsspec >=2023.1,<2025
         # fsspec[http]
         - aiohttp !=4.0.0a0,!=4.0.0a1
 
-        - lxml >=4.9.1
-        - measurement >=3.2
-        - numpy >=1.22
-        - pillow >=10.3
-        - pint >=0.17
-        - platformdirs
-        - polars >=1.0.0
-        - portion >=2.4.2
-        - pyarrow >=13
-        - pydantic >=2.7.3
-        - pydantic-settings >=2.7.0
-        - pypdf >=3.12.1
-        - python-dateutil
-        - rapidfuzz >=3.1
-        - scikit-learn >=1.0.2
-        - stamina >=23
-        - tabulate >=0.8
-        - tqdm >=4
-        - tzfpy >=0.15.2
+        - lxml >=4.9.1,<6
+        - measurement >=3.2,<4
+        - numpy >=1.22,<3
+        - pillow >=10.3,<12
+        - platformdirs >=4,<5
+        - polars >=1.0.0,<2
+        - portion >=2.4.2,<3
+        - pyarrow >=13,<19
+        - pydantic >=2.7.3,<3
+        - pydantic-settings >=2.7.0,<3
+        - pypdf >=3.12.1,<6
+        - python-dateutil >=2,<3
+        - rapidfuzz >=3.1,<4
+        - scikit-learn >=1.0.2,<2
+        - stamina >=23,<25
+        - tabulate >=0.8,<1
+        - tqdm >=4,<5
+        - tzfpy >=0.15.2,<1
 
     test:
       imports:
@@ -88,8 +87,8 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - pdbufr >=0.10.2
-        - pybufrkit >=0.2
+        - pdbufr >=0.10.2,<1
+        - pybufrkit >=0.2,<1
 
     test:
       imports:
@@ -110,8 +109,8 @@ outputs:
   #     run:
   #       - python >={{ python_min }}
   #       - {{ pin_subpackage(name, exact=True) }}
-  #       - pandas >=2
-  #       - sqlalchemy-cratedb
+  #       - pandas >=2,<3
+  #       - sqlalchemy-cratedb<1
 
   #   test:
   #     imports:
@@ -131,8 +130,8 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - duckdb >=0.9
-        - pandas >=2
+        - duckdb >=0.9,<2
+        - pandas >=2,<3
 
     test:
       imports:
@@ -152,7 +151,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - eccodes >=1.5.2
+        - python-eccodes >=1.5.2,<3
 
     test:
       imports:
@@ -172,7 +171,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - xlsxwriter >=3.0.9
+        - xlsxwriter >=3.0.9,<4
 
     test:
       imports:
@@ -192,10 +191,10 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - duckdb >=0.9
-        - plotly >=5.11
-        - statsmodels >=0.14.1
-        - streamlit >=1.27
+        - duckdb >=0.9,<2
+        - plotly >=5.11,<6
+        - statsmodels >=0.14.1,<1
+        - streamlit >=1.27,<2
 
     test:
       imports:
@@ -215,11 +214,11 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - pandas >=2
-        - sqlalchemy >=2
-        - xarray >=2023.1
-        - xlsxwriter >=3.0.9
-        - zarr >=2.13
+        - pandas >=2,<3
+        - sqlalchemy >=2,<3
+        - xarray >=2023.1,<2025
+        - xlsxwriter >=3.0.9,<4
+        - zarr >=2.13,<3
 
     test:
       imports:
@@ -239,10 +238,10 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - pandas >=2
-        - sqlalchemy >=2
-        - xarray >=2023.1
-        - xlsxwriter >=3.0.9
+        - pandas >=2,<3
+        - sqlalchemy >=2,<3
+        - xarray >=2023.1,<2025
+        - xlsxwriter >=3.0.9,<4
 
     test:
       imports:
@@ -262,9 +261,9 @@ outputs:
   #     run:
   #       - python >={{ python_min }}
   #       - {{ pin_subpackage(name, exact=True) }}
-  #       - influxdb >=5.3
-  #       - influxdb-client >=1.18
-  #       - influxdb3-python >=0.3
+  #       - influxdb >=5.3,<6
+  #       - influxdb-client >=1.18,<2
+  #       - influxdb3-python >=0.3,<1
 
   #   test:
   #     imports:
@@ -284,9 +283,9 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - scipy >=1.14.1
-        - shapely >=2
-        - utm >=0.7
+        - scipy >=1.14.1,<2
+        - shapely >=2,<3
+        - utm >=0.7,<1
 
     test:
       imports:
@@ -306,10 +305,10 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - ipython >=8.5
-        - matplotlib-base >=3.3
+        - ipython >=8.5,<9
+        - matplotlib-base >=3.3,<4
 
-    test:
+     test:
       imports:
         - wetterdienst
       commands:
@@ -327,7 +326,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - matplotlib-base >=3.3
+        - matplotlib-base >=3.3,<4
 
     test:
       imports:
@@ -347,8 +346,8 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - mysqlclient >=2
-        - pandas >=2
+        - mysqlclient >=2,<3
+        - pandas >=2,<3
 
     test:
       imports:
@@ -368,7 +367,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - psycopg2-binary >=2
+        - psycopg2-binary >=2,<3
 
     test:
       imports:
@@ -388,7 +387,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - h5py >=3.1
+        - h5py >=3.1,<4
 
     test:
       imports:
@@ -408,9 +407,9 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - pybufrkit >=0.2
-        - wradlib >=2.0.1
-        - xradar >=0.2
+        - pybufrkit >=0.2,<1
+        - wradlib >=2.0.1,<3
+        - xradar >=0.2,<1
 
     test:
       imports:
@@ -430,9 +429,9 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - fastapi >=0.95.1
-        - httpx >=0.24
-        - uvicorn >=0.14
+        - fastapi >=0.95.1,<1
+        - httpx >=0.24,<1
+        - uvicorn >=0.14,<1
 
     test:
       imports:
@@ -452,7 +451,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - duckdb>=0.9
+        - duckdb>=0.9,<2
 
     test:
       imports:
