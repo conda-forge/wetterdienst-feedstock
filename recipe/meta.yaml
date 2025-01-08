@@ -110,7 +110,7 @@ outputs:
   #       - python >={{ python_min }}
   #       - {{ pin_subpackage(name, exact=True) }}
   #       - pandas >=2,<3
-  #       - sqlalchemy-cratedb<1
+  #       - sqlalchemy-cratedb <1
 
   #   test:
   #     imports:
