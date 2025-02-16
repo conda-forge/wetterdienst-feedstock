@@ -48,8 +48,6 @@ outputs:
 
         - lxml >=4.9.1,<6
         - measurement >=3.2,<4
-        - numpy >=1.22,<3
-        - pillow >=10.3,<12
         - platformdirs >=4,<5
 
         - polars >=1.0.0,<2
@@ -64,7 +62,6 @@ outputs:
         - pypdf >=3.12.1,<6
         - python-dateutil >=2,<3
         - rapidfuzz >=3.1,<4
-        - scikit-learn >=1.0.2,<2
         - stamina >=23,<25
         - tabulate >=0.8,<1
         - tqdm >=4,<5
