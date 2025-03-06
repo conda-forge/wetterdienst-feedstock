@@ -451,7 +451,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - duckdb>=0.9,<2
+        - duckdb >=0.9,<2
 
     test:
       imports:
