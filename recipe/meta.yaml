@@ -431,7 +431,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         - fastapi >=0.95.1,<1
         - httpx >=0.24,<1
-        - uvicorn >=0.14,<1
+        - uvicorn-standard >=0.14,<1        
 
     test:
       imports:
