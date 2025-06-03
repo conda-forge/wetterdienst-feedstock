@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.108.0" %}
+{% set version = "0.109.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 26f721ec60a288e1dbd23cac55327b271cb53fb46f1e66ff0d3f0634bd998cf8
+  sha256: 227106fd29d23e5abfc39b121bc7eac719e1c8b32de9c3af3bf9efcb6793f511
 
 build:
   number: 0
@@ -42,7 +42,7 @@ outputs:
         - cloup >=3.0.1,<4
         - diskcache >=5.4,<6
 
-        - fsspec >=2023.1,<2025
+        - fsspec >=2023.1,<2026
         # fsspec[http]
         - aiohttp !=4.0.0a0,!=4.0.0a1
 
@@ -62,11 +62,11 @@ outputs:
         - pypdf >=3.12.1,<6
         - python-dateutil >=2,<3
         - rapidfuzz >=3.1,<4
-        - stamina >=23,<25
+        - stamina >=23,<26
         - tabulate >=0.8,<1
         - tqdm >=4,<5
-        - python-tzdata >=2024.2,<2025
-        - tzfpy >=0.15.2,<1
+        - python-tzdata >=2024.2,<2026
+        - tzfpy >=0.15.2,<2
 
     test:
       imports:
@@ -192,7 +192,7 @@ outputs:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
         - duckdb >=0.9,<2
-        - plotly >=5.11,<6
+        - plotly >=5.11,<7
         - statsmodels >=0.14.1,<1
         - streamlit >=1.27,<2
 
@@ -216,7 +216,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         - pandas >=2,<3
         - sqlalchemy >=2,<3
-        - xarray >=2023.1,<2025
+        - xarray >=2023.1,<2026
         - xlsxwriter >=3.0.9,<4
         - zarr >=2.13,<3
 
@@ -240,7 +240,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         - pandas >=2,<3
         - sqlalchemy >=2,<3
-        - xarray >=2023.1,<2025
+        - xarray >=2023.1,<2026
         - xlsxwriter >=3.0.9,<4
 
     test:
