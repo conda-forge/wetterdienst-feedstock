@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.109.0" %}
+{% set version = "0.110.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 227106fd29d23e5abfc39b121bc7eac719e1c8b32de9c3af3bf9efcb6793f511
+  sha256: 1a31c49f24e05db3ac41b06d8c081f04cbb33d82f6296d48cc01b269e1fb36f8
 
 build:
   number: 0
@@ -42,7 +42,7 @@ outputs:
         - cloup >=3.0.1,<4
         - diskcache >=5.4,<6
 
-        - fsspec >=2023.1,<2026
+        - fsspec >=2023.1
         # fsspec[http]
         - aiohttp !=4.0.0a0,!=4.0.0a1
 
@@ -50,7 +50,7 @@ outputs:
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
-        - polars >=1.0.0,<2
+        - polars >=1.0.0,<2,!=1.31.0
         # polars[calamine,pyarrow]
         - fastexcel >=0.9
         - pyarrow >=7.0.0
@@ -65,7 +65,7 @@ outputs:
         - stamina >=23,<26
         - tabulate >=0.8,<1
         - tqdm >=4,<5
-        - python-tzdata >=2024.2,<2026
+        - python-tzdata >=2024.2
         - tzfpy >=0.15.2,<2
 
     test:
@@ -346,7 +346,7 @@ outputs:
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
-        - python-kaleido >=0.2.1
+        - python-kaleido >=0.2.2
         - plotly >=5.24.1
 
     test:
