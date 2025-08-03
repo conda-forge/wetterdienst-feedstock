@@ -243,8 +243,6 @@ outputs:
         - python >={{ python_min_exporter }}
         - {{ pin_subpackage(name, exact=True) }}
         - { name }}-with-export-without-zarr
-        # let's see if we can still include this with python 3.10
-        # because otherwise we can't stay noarch: python 
         - zarr >=3.1,<4
 
     test:
