@@ -1,6 +1,7 @@
 {% set name = "wetterdienst" %}
 {% set version = "0.111.0" %}
 {% set python_min = "3.10" %}
+{% set python_min_exporter = "3.11" %}
 
 package:
   name: {{ name }}-split
@@ -205,7 +206,9 @@ outputs:
         - python {{ python_min }}
         - pip
 
-  - name: {{ name }}-with-export
+  # this has been dropped upstream but is still needed
+  # here for python 3.10 support
+  - name: {{ name }}-with-export-without-zarr
     build:
       noarch: python
     requirements:
@@ -218,6 +221,28 @@ outputs:
         - sqlalchemy >=2,<3
         - xarray >=2023.1,<2026
         - xlsxwriter >=3.0.9,<4
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
+
+  # this is only available for python >= 3.11, where the
+  # require zarr version is available
+  - name: {{ name }}-with-export
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min_exporter }}
+      run:
+        - python >={{ python_min_exporter }}
+        - {{ pin_subpackage(name, exact=True) }}
+        - { name }}-with-export-without-zarr
         # let's see if we can still include this with python 3.10
         # because otherwise we can't stay noarch: python 
         - zarr >=3.1,<4
@@ -228,7 +253,7 @@ outputs:
       commands:
         - pip check
       requires:
-        - python {{ python_min }}
+        - python {{ python_min_exporter }}
         - pip
 
   # - name: {{ name }}-with-influxdb
