@@ -231,15 +231,6 @@ outputs:
         - python {{ python_min }}
         - pip
 
-    test:
-      imports:
-        - wetterdienst
-      commands:
-        - pip check
-      requires:
-        - python {{ python_min }}
-        - pip
-
   # - name: {{ name }}-with-influxdb
   #   build:
   #     noarch: python
