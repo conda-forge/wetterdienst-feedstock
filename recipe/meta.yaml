@@ -242,7 +242,7 @@ outputs:
       run:
         - python >={{ python_min_exporter }}
         - {{ pin_subpackage(name, exact=True) }}
-        - { name }}-with-export-without-zarr
+        - {{ name }}-with-export-without-zarr
         - zarr >=3.1,<4
 
     test:
