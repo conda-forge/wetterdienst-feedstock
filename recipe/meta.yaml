@@ -46,11 +46,11 @@ outputs:
         # fsspec[http]
         - aiohttp !=4.0.0a0,!=4.0.0a1
 
-        - lxml >=4.9.1,<6
+        - lxml >=4.9.1,<7
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
-        - polars >=1.0.0,<2,!=1.31.0
+        - polars >=1.0.0,<2
         # polars[calamine,pyarrow]
         - fastexcel >=0.9
         - pyarrow >=7.0.0
@@ -218,7 +218,9 @@ outputs:
         - sqlalchemy >=2,<3
         - xarray >=2023.1,<2026
         - xlsxwriter >=3.0.9,<4
-        - zarr >=2.13,<3
+        # let's see if we can still include this with python 3.10
+        # because otherwise we can't stay noarch: python 
+        - zarr >=3.1,<4
 
     test:
       imports:
@@ -228,20 +230,6 @@ outputs:
       requires:
         - python {{ python_min }}
         - pip
-
-  - name: {{ name }}-with-export-without-zarr
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - python >={{ python_min }}
-        - {{ pin_subpackage(name, exact=True) }}
-        - pandas >=2,<3
-        - sqlalchemy >=2,<3
-        - xarray >=2023.1,<2026
-        - xlsxwriter >=3.0.9,<4
 
     test:
       imports:
