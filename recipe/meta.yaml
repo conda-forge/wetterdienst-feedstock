@@ -1,6 +1,7 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.110.0" %}
+{% set version = "0.111.0" %}
 {% set python_min = "3.10" %}
+{% set python_min_exporter = "3.11" %}
 
 package:
   name: {{ name }}-split
@@ -8,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 1a31c49f24e05db3ac41b06d8c081f04cbb33d82f6296d48cc01b269e1fb36f8
+  sha256: 0f7b38aae930095e8c84a6305345f94251b4bd8e4ee71202daa39b3c0e232409
 
 build:
   number: 0
@@ -46,11 +47,11 @@ outputs:
         # fsspec[http]
         - aiohttp !=4.0.0a0,!=4.0.0a1
 
-        - lxml >=4.9.1,<6
+        - lxml >=4.9.1,<7
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
-        - polars >=1.0.0,<2,!=1.31.0
+        - polars >=1.0.0,<2
         # polars[calamine,pyarrow]
         - fastexcel >=0.9
         - pyarrow >=7.0.0
@@ -205,30 +206,8 @@ outputs:
         - python {{ python_min }}
         - pip
 
-  - name: {{ name }}-with-export
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - python >={{ python_min }}
-        - {{ pin_subpackage(name, exact=True) }}
-        - pandas >=2,<3
-        - sqlalchemy >=2,<3
-        - xarray >=2023.1,<2026
-        - xlsxwriter >=3.0.9,<4
-        - zarr >=2.13,<3
-
-    test:
-      imports:
-        - wetterdienst
-      commands:
-        - pip check
-      requires:
-        - python {{ python_min }}
-        - pip
-
+  # this has been dropped upstream but is still needed
+  # here for python 3.10 support
   - name: {{ name }}-with-export-without-zarr
     build:
       noarch: python
@@ -250,6 +229,29 @@ outputs:
         - pip check
       requires:
         - python {{ python_min }}
+        - pip
+
+  # this is only available for python >= 3.11, where the
+  # require zarr version is available
+  - name: {{ name }}-with-export
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min_exporter }}
+      run:
+        - python >={{ python_min_exporter }}
+        - {{ pin_subpackage(name, exact=True) }}
+        - {{ name }}-with-export-without-zarr
+        - zarr >=3.1,<4
+
+    test:
+      imports:
+        - wetterdienst
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min_exporter }}
         - pip
 
   # - name: {{ name }}-with-influxdb
