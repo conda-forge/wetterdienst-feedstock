@@ -42,6 +42,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-wetterdienst--with--interpolation-green.svg)](https://anaconda.org/conda-forge/wetterdienst-with-interpolation) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/wetterdienst-with-interpolation.svg)](https://anaconda.org/conda-forge/wetterdienst-with-interpolation) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wetterdienst-with-interpolation.svg)](https://anaconda.org/conda-forge/wetterdienst-with-interpolation) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/wetterdienst-with-interpolation.svg)](https://anaconda.org/conda-forge/wetterdienst-with-interpolation) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-wetterdienst--with--matplotlib-green.svg)](https://anaconda.org/conda-forge/wetterdienst-with-matplotlib) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/wetterdienst-with-matplotlib.svg)](https://anaconda.org/conda-forge/wetterdienst-with-matplotlib) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wetterdienst-with-matplotlib.svg)](https://anaconda.org/conda-forge/wetterdienst-with-matplotlib) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/wetterdienst-with-matplotlib.svg)](https://anaconda.org/conda-forge/wetterdienst-with-matplotlib) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-wetterdienst--with--mysql-green.svg)](https://anaconda.org/conda-forge/wetterdienst-with-mysql) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/wetterdienst-with-mysql.svg)](https://anaconda.org/conda-forge/wetterdienst-with-mysql) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wetterdienst-with-mysql.svg)](https://anaconda.org/conda-forge/wetterdienst-with-mysql) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/wetterdienst-with-mysql.svg)](https://anaconda.org/conda-forge/wetterdienst-with-mysql) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-wetterdienst--with--pdf-green.svg)](https://anaconda.org/conda-forge/wetterdienst-with-pdf) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/wetterdienst-with-pdf.svg)](https://anaconda.org/conda-forge/wetterdienst-with-pdf) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wetterdienst-with-pdf.svg)](https://anaconda.org/conda-forge/wetterdienst-with-pdf) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/wetterdienst-with-pdf.svg)](https://anaconda.org/conda-forge/wetterdienst-with-pdf) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-wetterdienst--with--plotting-green.svg)](https://anaconda.org/conda-forge/wetterdienst-with-plotting) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/wetterdienst-with-plotting.svg)](https://anaconda.org/conda-forge/wetterdienst-with-plotting) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wetterdienst-with-plotting.svg)](https://anaconda.org/conda-forge/wetterdienst-with-plotting) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/wetterdienst-with-plotting.svg)](https://anaconda.org/conda-forge/wetterdienst-with-plotting) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-wetterdienst--with--postgresql-green.svg)](https://anaconda.org/conda-forge/wetterdienst-with-postgresql) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/wetterdienst-with-postgresql.svg)](https://anaconda.org/conda-forge/wetterdienst-with-postgresql) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wetterdienst-with-postgresql.svg)](https://anaconda.org/conda-forge/wetterdienst-with-postgresql) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/wetterdienst-with-postgresql.svg)](https://anaconda.org/conda-forge/wetterdienst-with-postgresql) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-wetterdienst--with--radar-green.svg)](https://anaconda.org/conda-forge/wetterdienst-with-radar) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/wetterdienst-with-radar.svg)](https://anaconda.org/conda-forge/wetterdienst-with-radar) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/wetterdienst-with-radar.svg)](https://anaconda.org/conda-forge/wetterdienst-with-radar) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/wetterdienst-with-radar.svg)](https://anaconda.org/conda-forge/wetterdienst-with-radar) |
@@ -59,16 +60,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `wetterdienst, wetterdienst-with-bufr, wetterdienst-with-duckdb, wetterdienst-with-eccodes, wetterdienst-with-excel, wetterdienst-with-explorer, wetterdienst-with-export, wetterdienst-with-export-without-zarr, wetterdienst-with-interpolation, wetterdienst-with-matplotlib, wetterdienst-with-mysql, wetterdienst-with-plotting, wetterdienst-with-postgresql, wetterdienst-with-radar, wetterdienst-with-radarplus, wetterdienst-with-restapi, wetterdienst-with-sql` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `wetterdienst, wetterdienst-with-bufr, wetterdienst-with-duckdb, wetterdienst-with-eccodes, wetterdienst-with-excel, wetterdienst-with-explorer, wetterdienst-with-export, wetterdienst-with-export-without-zarr, wetterdienst-with-interpolation, wetterdienst-with-matplotlib, wetterdienst-with-mysql, wetterdienst-with-pdf, wetterdienst-with-plotting, wetterdienst-with-postgresql, wetterdienst-with-radar, wetterdienst-with-radarplus, wetterdienst-with-restapi, wetterdienst-with-sql` can be installed with `conda`:
 
 ```
-conda install wetterdienst wetterdienst-with-bufr wetterdienst-with-duckdb wetterdienst-with-eccodes wetterdienst-with-excel wetterdienst-with-explorer wetterdienst-with-export wetterdienst-with-export-without-zarr wetterdienst-with-interpolation wetterdienst-with-matplotlib wetterdienst-with-mysql wetterdienst-with-plotting wetterdienst-with-postgresql wetterdienst-with-radar wetterdienst-with-radarplus wetterdienst-with-restapi wetterdienst-with-sql
+conda install wetterdienst wetterdienst-with-bufr wetterdienst-with-duckdb wetterdienst-with-eccodes wetterdienst-with-excel wetterdienst-with-explorer wetterdienst-with-export wetterdienst-with-export-without-zarr wetterdienst-with-interpolation wetterdienst-with-matplotlib wetterdienst-with-mysql wetterdienst-with-pdf wetterdienst-with-plotting wetterdienst-with-postgresql wetterdienst-with-radar wetterdienst-with-radarplus wetterdienst-with-restapi wetterdienst-with-sql
 ```
 
 or with `mamba`:
 
 ```
-mamba install wetterdienst wetterdienst-with-bufr wetterdienst-with-duckdb wetterdienst-with-eccodes wetterdienst-with-excel wetterdienst-with-explorer wetterdienst-with-export wetterdienst-with-export-without-zarr wetterdienst-with-interpolation wetterdienst-with-matplotlib wetterdienst-with-mysql wetterdienst-with-plotting wetterdienst-with-postgresql wetterdienst-with-radar wetterdienst-with-radarplus wetterdienst-with-restapi wetterdienst-with-sql
+mamba install wetterdienst wetterdienst-with-bufr wetterdienst-with-duckdb wetterdienst-with-eccodes wetterdienst-with-excel wetterdienst-with-explorer wetterdienst-with-export wetterdienst-with-export-without-zarr wetterdienst-with-interpolation wetterdienst-with-matplotlib wetterdienst-with-mysql wetterdienst-with-pdf wetterdienst-with-plotting wetterdienst-with-postgresql wetterdienst-with-radar wetterdienst-with-radarplus wetterdienst-with-restapi wetterdienst-with-sql
 ```
 
 It is possible to list all of the versions of `wetterdienst` available on your platform with `conda`:
@@ -118,12 +119,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -150,7 +151,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/wetterdienst-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
