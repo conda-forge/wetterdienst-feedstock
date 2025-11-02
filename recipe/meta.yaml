@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.113.0" %}
+{% set version = "0.114.1" %}
 {% set python_min_exporter = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: b3bc2ee9090904ea252fc8e6b2c3a87f028e9e514b133fb9b6f53bcc74d16fd7
+  sha256: 8165be3705f38101694ba1c1a10d11dedbf1b8ddb02f7ebac43b9c2c1adf8ddf
 
 build:
   number: 0
@@ -50,7 +50,7 @@ outputs:
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
-        - polars >=1.0.0,<2
+        - polars >=1.15.0,<2
         # polars[calamine,pyarrow]
         - fastexcel >=0.9
         - pyarrow >=7.0.0
