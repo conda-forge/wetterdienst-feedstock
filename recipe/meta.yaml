@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.114.3" %}
+{% set version = "0.115.0" %}
 {% set python_min_exporter = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: 90019cdd5ffdd76f6c22b35742bbcf6906bcbb92e7d4df0b624dde954d1e088f
+  sha256: 90b21a6a40f51022874adc766f239604fb83c2749073bec886f3fd8993e620f9
 
 build:
   number: 0
@@ -148,7 +148,7 @@ outputs:
       host:
         - python {{ python_min }}
       run:
-        - python >={{ python_min }}
+        - python >={{ python_min }},<3.14
         - {{ pin_subpackage(name, exact=True) }}
         - python-eccodes >=1.5.2,<3
 
@@ -171,29 +171,6 @@ outputs:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
         - xlsxwriter >=3.0.9,<4
-
-    test:
-      imports:
-        - wetterdienst
-      commands:
-        - pip check
-      requires:
-        - python {{ python_min }}
-        - pip
-
-  - name: {{ name }}-with-explorer
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - python >={{ python_min }}
-        - {{ pin_subpackage(name, exact=True) }}
-        - duckdb >=0.9,<2
-        - plotly >=5.11,<7
-        - statsmodels >=0.14.1,<1
-        - streamlit >=1.27,<2
 
     test:
       imports:
