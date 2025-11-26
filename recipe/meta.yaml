@@ -148,7 +148,7 @@ outputs:
       host:
         - python {{ python_min }}
       run:
-        - python >={{ python_min }}
+        - python >={{ python_min }},<3.14
         - {{ pin_subpackage(name, exact=True) }}
         - python-eccodes >=1.5.2,<3
 
@@ -171,29 +171,6 @@ outputs:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
         - xlsxwriter >=3.0.9,<4
-
-    test:
-      imports:
-        - wetterdienst
-      commands:
-        - pip check
-      requires:
-        - python {{ python_min }}
-        - pip
-
-  - name: {{ name }}-with-explorer
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - python >={{ python_min }}
-        - {{ pin_subpackage(name, exact=True) }}
-        - duckdb >=0.9,<2
-        - plotly >=5.11,<7
-        - statsmodels >=0.14.1,<1
-        - streamlit >=1.27,<2
 
     test:
       imports:
