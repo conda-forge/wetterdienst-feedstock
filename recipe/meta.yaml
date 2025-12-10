@@ -84,7 +84,9 @@ outputs:
       host:
         - python {{ python_min }}
       run:
-        - python >={{ python_min }}
+        # upstream has this constraint only on pdbufr but we cannot
+        # do that on conda-forge and stay noarch: python
+        - python >={{ python_min }},<3.14
         - {{ pin_subpackage(name, exact=True) }}
         - pdbufr >=0.10.2,<1
         - pybufrkit >=0.2,<1
