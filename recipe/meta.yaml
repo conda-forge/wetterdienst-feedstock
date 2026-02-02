@@ -53,9 +53,8 @@ outputs:
         - platformdirs >=4,<5
 
         - polars >=1.15.0,<2
-        # polars[calamine,pyarrow]
+        # polars[calamine]
         - fastexcel >=0.9
-        - pyarrow >=7.0.0
 
         - portion >=2.4.2,<3
         - pyarrow >=22.0.0
