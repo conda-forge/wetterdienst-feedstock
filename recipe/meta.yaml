@@ -1,5 +1,5 @@
 {% set name = "wetterdienst" %}
-{% set version = "0.117.0" %}
+{% set version = "0.118.0" %}
 {% set python_min_exporter = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wetterdienst-{{ version }}.tar.gz
-  sha256: c2b5713fb42d3d7f175e42859b1c4af244037e4d3848870bac1fc47a3d47ccf1
+  sha256: b87f8f8bcc96f9278bb38cc06ad9b11751980b38753bf3a7b652c5133c4ebe58
 
 build:
   number: 0
@@ -32,12 +32,14 @@ outputs:
     requirements:
       host:
         - python {{ python_min }}
-        - uv-build >=0.8.15,<0.9.0
+        - uv-build >=0.9.21,<0.10.0
         - pip
       run:
         - python >={{ python_min }},<4.0
+        - aiohttp >=3.13.2,<4
         # for python < 3.11 but we want to stay noarch
         - backports-datetime-fromisoformat >=2
+        - certifi >=2024.2.2
         - click >=8,<9
         - cloup >=3.0.1,<4
         - diskcache >=5.4,<6
@@ -51,11 +53,11 @@ outputs:
         - platformdirs >=4,<5
 
         - polars >=1.15.0,<2
-        # polars[calamine,pyarrow]
+        # polars[calamine]
         - fastexcel >=0.9
-        - pyarrow >=7.0.0
 
         - portion >=2.4.2,<3
+        - pyarrow >=22.0.0
         - pydantic >=2.7.3,<3
         - pydantic-extra-types >=2.10.1,<3
         - pydantic-settings >=2.7.0,<3
@@ -64,6 +66,8 @@ outputs:
         - stamina >=23,<26
         - tabulate >=0.8,<1
         - tqdm >=4,<5
+        # for all python, not just py < 3.11 to stay noarch: python
+        - typing-extensions >=4.15.0
         - python-tzdata >=2024.2
         - tzfpy >=0.15.2,<2
 
