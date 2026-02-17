@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.118.0"
+  version: "0.119.0"
   python_min_exporter: "3.11"
 
 recipe:
@@ -9,11 +9,11 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: b87f8f8bcc96f9278bb38cc06ad9b11751980b38753bf3a7b652c5133c4ebe58
+  sha256: c32655e52047d13e63a44a5de1df785f7bcdd7dbc61b504922522b7f43ec9afc
 
 
 build:
-  number: 1
+  number: 0
 
 outputs:
   - package:
@@ -36,10 +36,10 @@ outputs:
         - aiohttp >=3.13.2,<4
         # for python < 3.11 but we want to stay noarch
         - backports-datetime-fromisoformat >=2
+        - cachetools >=6.2.6,<7
         - certifi >=2024.2.2
         - click >=8,<9
         - cloup >=3.0.1,<4
-        - diskcache >=5.4,<6
 
         - fsspec >=2023.1
         # fsspec[http]
@@ -60,6 +60,7 @@ outputs:
         - pydantic-settings >=2.7.0,<3
         - python-dateutil >=2,<3
         - rapidfuzz >=3.1,<4
+        - shelved-cache >=0.5.0,<1
         - stamina >=23,<26
         - tabulate >=0.8,<1
         - tqdm >=4,<5
