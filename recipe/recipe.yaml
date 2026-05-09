@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.120.0"
+  version: "0.121.0"
   python_min_exporter: "3.11"
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: e7ed0f4ca05d30c8f32c68e935be7ddb7f32c7aa1aad522d105a71ce965a71b2
+  sha256: e287cf11b40bc1be2ab1f6a30fd5e82ea6eb7b0af8d31da5511dcd513f751339
 
 
 build:
@@ -36,7 +36,6 @@ outputs:
         - aiohttp >=3.13.2,<4
         # for python < 3.11 but we want to stay noarch
         - backports-datetime-fromisoformat >=2
-        - cachetools >=6.2.6,<7
         - certifi >=2024.2.2
         - click >=8,<9
         - cloup >=3.0.1,<4
@@ -60,7 +59,7 @@ outputs:
         - pydantic-settings >=2.7.0,<3
         - python-dateutil >=2,<3
         - rapidfuzz >=3.1,<4
-        - shelved-cache >=0.5.0,<1
+        - diskcache >=5.6.3,<6
         - stamina >=23,<26
         - tabulate >=0.8,<1
         - tqdm >=4,<5
@@ -85,9 +84,7 @@ outputs:
       host:
         - python ${{ python_min }}.*
       run:
-        # upstream has this constraint only on pdbufr but we cannot
-        # do that on conda-forge and stay noarch: python
-        - python >=${{ python_min }},<3.14
+        - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - pdbufr >=0.10.2,<1
         - pybufrkit >=0.2,<1
@@ -145,7 +142,7 @@ outputs:
       host:
         - python ${{ python_min }}.*
       run:
-        - python >=${{ python_min }},<3.14
+        - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - python-eccodes >=1.5.2,<3
     tests:
