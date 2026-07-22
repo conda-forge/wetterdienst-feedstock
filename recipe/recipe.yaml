@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.127.0"
+  version: "0.128.0"
   python_min_exporter: "3.11"
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 2551e0940fde832a50e5c39a7d8895c8b6a2de3fb6cc3d677217c27ac22606db
+  sha256: 267658cc9f41f0cfa20a9cd11a40eeee8b839a852a8e8c73b474c924f443d383
 
 
 build:
