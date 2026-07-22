@@ -215,6 +215,25 @@ outputs:
           python_version: ${{ python_min_exporter }}.*
 
   - package:
+      name: ${{ name }}-with-knmi
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage(name, exact=True) }}
+        - h5netcdf >=1.7.3,<2
+        - h5py >=3.1,<4
+    tests:
+      - python:
+          imports:
+            - wetterdienst
+          pip_check: true
+          python_version: ${{ python_min }}.*
+
+  - package:
       name: ${{ name }}-with-influxdb
     build:
       noarch: python
