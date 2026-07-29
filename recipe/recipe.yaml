@@ -292,6 +292,25 @@ outputs:
           python_version: ${{ python_min }}.*
 
   - package:
+      name: ${{ name }}-with-mcp
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - python >=${{ python_min }}
+        - ${{ pin_subpackage(name, exact=True) }}
+        - wetterdienst-with-restapi
+        - fastmcp >=3.4.4,<4.0.0
+    tests:
+      - python:
+          imports:
+            - wetterdienst
+          pip_check: true
+          python_version: ${{ python_min }}.*
+
+  - package:
       name: ${{ name }}-with-mysql
     build:
       noarch: python
