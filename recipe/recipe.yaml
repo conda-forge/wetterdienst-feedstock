@@ -48,7 +48,7 @@ outputs:
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
-        - polars >=1.15.0,<2
+        - polars >=1.43.0,<2
         # polars[calamine]
         - fastexcel >=0.9
 
