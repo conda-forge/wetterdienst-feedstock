@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.132.0"
+  version: "0.133.0"
   python_min_exporter: "3.11"
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: fa17b3be7eced1e4c72d6372424fffa94c2bf6d08f5d55a7c2d87e1d9c05a911
+  sha256: 524df0998a5b19710fc6113b4c3e7faac54d5aef717c2cb6a687f3a4a0b15d59
 
 
 build:
@@ -29,28 +29,27 @@ outputs:
     requirements:
       host:
         - python ${{ python_min }}.*
-        - uv-build >=0.9.21,<0.12.0
         - pip
+        - uv-build >=0.9.21,<0.13.0
       run:
         - python >=${{ python_min }},<4.0
-        - aiohttp >=3.13.2,<4
-        # for python < 3.11 but we want to stay noarch
+        - aiohttp >=3.14.0,<4
+        # tightest of upstream's floors (python <3.11)
         - backports-datetime-fromisoformat >=2
         - certifi >=2024.2.2
-        - click >=8.1,<9
+        - click >=8.2,<9
         - cloup >=3.0.1,<4
 
         - fsspec >=2024.6
-        # fsspec[http]
-        - aiohttp !=4.0.0a0,!=4.0.0a1
 
         - lxml >=4.9.1,<7
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
         - polars >=1.43.0,<2
-        # polars[calamine]
+        # start polars[calamine]
         - fastexcel >=0.9
+        # end polars[calamine]
 
         - portion >=2.4.2,<3
         - pyarrow >=22.0.0
@@ -60,11 +59,10 @@ outputs:
         - python-dateutil >=2.8.2,<3
         - rapidfuzz >=3.1,<4
         - diskcache >=5.6.3,<6
-        - stamina >=23,<27
+        - stamina >=25.1.0,<27
         - tabulate >=0.9,<1
         - tqdm >=4.64,<5
-        # for all python, not just py < 3.11 to stay noarch: python
-        - typing-extensions >=4.15.0
+        - typing_extensions >=4.15.0,<5
         - python-tzdata >=2024.2
         - tzfpy >=0.15.2,<2
     tests:
@@ -93,7 +91,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   # sqlalchemy-cratedb not on conda-forge
   # - package:
@@ -125,14 +125,16 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - duckdb >=1,<2
-        - pandas >=2,<4
+        - python-duckdb >=1,<2
+        - pandas >=2.2.2,<4
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-eccodes
@@ -150,7 +152,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-excel
@@ -168,7 +172,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   # this has been dropped upstream but is still needed
   # here for python 3.10 support
@@ -182,7 +188,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - pandas >=2,<4
+        - pandas >=2.2.2,<4
         - sqlalchemy >=2,<3
         - xarray >=2024.6,<2027
         - xlsxwriter >=3.0.9,<4
@@ -191,7 +197,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   # this is only available for python >= 3.11, where the
   # require zarr version is available
@@ -205,14 +213,20 @@ outputs:
       run:
         - python >=${{ python_min_exporter }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - ${{ name }}-with-export-without-zarr
+        - pandas >=2.2.2,<4
+        - sqlalchemy >=2,<3
+        - xarray >=2024.6,<2027
+        - xlsxwriter >=3.0.9,<4
+        # tightest of upstream's floors (python >=3.11)
         - zarr >=3.1,<4
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min_exporter }}.*
+          python_version:
+            - ${{ python_min_exporter }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-knmi
@@ -225,13 +239,15 @@ outputs:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - h5netcdf >=1.7.3,<2
-        - h5py >=3.1,<4
+        - h5py >=3.11,<4
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-influxdb
@@ -251,7 +267,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-interpolation
@@ -264,14 +282,16 @@ outputs:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - scipy >=1.14.1,<2
-        - shapely >=2,<3
+        - shapely >=2.0.4,<3
         - utm >=0.7,<1
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-matplotlib
@@ -289,7 +309,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-mcp
@@ -308,7 +330,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-mysql
@@ -321,13 +345,15 @@ outputs:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - mysqlclient >=2,<3
-        - pandas >=2,<3
+        - pandas >=2.2.2,<3
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-pdf
@@ -345,7 +371,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-plotting
@@ -357,14 +385,16 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - python-kaleido >=0.2.2
-        - plotly >=5.24.1
+        - python-kaleido >=1.0.0
+        - plotly >=6.1.1
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-postgresql
@@ -376,13 +406,15 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - psycopg2-binary >=2,<3
+        - psycopg2 >=2,<3
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-radar
@@ -400,7 +432,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-radarplus
@@ -420,7 +454,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-restapi
@@ -440,7 +476,9 @@ outputs:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
   - package:
       name: ${{ name }}-with-sql
@@ -452,13 +490,15 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - duckdb >=1,<2
+        - python-duckdb >=1,<2
     tests:
       - python:
           imports:
             - wetterdienst
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
 about:
   homepage: https://github.com/earthobservations/wetterdienst
