@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.134.0"
+  version: "0.135.0"
   python_min_exporter: "3.11"
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: c0122e14f6ad124ad3a63543c6a396baa74fd0d5583a62260d3d6e776e09b2cc
+  sha256: decbb3a7af47f7ea2e3fdcfb10489cac3124abf142d8ba592898de03a5ccd65d
 
 
 build:
@@ -406,7 +406,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - psycopg2 >=2,<3
+        - psycopg2-binary >=2,<3
     tests:
       - python:
           imports:
