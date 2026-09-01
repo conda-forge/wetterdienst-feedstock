@@ -406,7 +406,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - psycopg2 >=2,<3
+        - psycopg2-binary >=2,<3
     tests:
       - python:
           imports:
