@@ -34,7 +34,6 @@ outputs:
       run:
         - python >=${{ python_min }},<4.0
         - aiohttp >=3.14.0,<4
-        # tightest of upstream's floors (python <3.11)
         - backports-datetime-fromisoformat >=2
         - certifi >=2024.2.2
         - click >=8.2,<9
