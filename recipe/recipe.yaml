@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.135.0"
+  version: "0.136.0"
   python_min_exporter: "3.11"
 
 recipe:
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: decbb3a7af47f7ea2e3fdcfb10489cac3124abf142d8ba592898de03a5ccd65d
+  sha256: ce04f8f021761b7a52085c894e8c3589ad000f4eacf34cf8d00d89b9675f35a0
 
 
 build:
@@ -34,7 +34,6 @@ outputs:
       run:
         - python >=${{ python_min }},<4.0
         - aiohttp >=3.14.0,<4
-        # tightest of upstream's floors (python <3.11)
         - backports-datetime-fromisoformat >=2
         - certifi >=2024.2.2
         - click >=8.2,<9
