@@ -418,7 +418,6 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - pybufrkit >=0.2,<1
         - wradlib >=2.0.1,<3
         - xradar >=0.2,<1
     tests:
