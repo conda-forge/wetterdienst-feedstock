@@ -1,7 +1,6 @@
 context:
   name: wetterdienst
   version: "0.137.0"
-  python_min_exporter: "3.11"
 
 recipe:
   name: ${{ name|lower }}-split
@@ -175,10 +174,8 @@ outputs:
             - ${{ python_min }}.*
             - "*"
 
-  # this has been dropped upstream but is still needed
-  # here for python 3.10 support
   - package:
-      name: ${{ name }}-with-export-without-zarr
+      name: ${{ name }}-with-export
     build:
       noarch: python
     requirements:
@@ -186,31 +183,6 @@ outputs:
         - python ${{ python_min }}.*
       run:
         - python >=${{ python_min }}
-        - ${{ pin_subpackage(name, exact=True) }}
-        - pandas >=2.2.2,<4
-        - sqlalchemy >=2,<3
-        - xarray >=2024.6,<2027
-        - xlsxwriter >=3.0.9,<4
-    tests:
-      - python:
-          imports:
-            - wetterdienst
-          pip_check: true
-          python_version:
-            - ${{ python_min }}.*
-            - "*"
-
-  # this is only available for python >= 3.11, where the
-  # require zarr version is available
-  - package:
-      name: ${{ name }}-with-export
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python ${{ python_min_exporter }}.*
-      run:
-        - python >=${{ python_min_exporter }}
         - ${{ pin_subpackage(name, exact=True) }}
         - h5netcdf >=1.7.3,<2
         - pandas >=2.2.2,<4
@@ -225,7 +197,7 @@ outputs:
             - wetterdienst
           pip_check: true
           python_version:
-            - ${{ python_min_exporter }}.*
+            - ${{ python_min }}.*
             - "*"
 
   - package:
