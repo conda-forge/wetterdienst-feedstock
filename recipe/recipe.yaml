@@ -83,7 +83,6 @@ outputs:
         - ${{ pin_subpackage(name, exact=True) }}
         - python-eccodes >=1.7.1,<3
         - pdbufr >=0.10.2,<1
-        - pybufrkit >=0.2,<1
     tests:
       - python:
           imports:
