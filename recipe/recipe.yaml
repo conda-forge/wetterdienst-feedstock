@@ -443,7 +443,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - fastapi >=0.115,<1
+        - fastapi >=0.142,<1
         - uvicorn-standard >=0.30,<1
     tests:
       - python:
