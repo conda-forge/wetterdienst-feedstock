@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.144.0"
+  version: "0.145.0"
 
 recipe:
   name: ${{ name|lower }}-split
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 268360d725b569e54a0e52d52fb7d34cd1e36273e6debf4caf68ce2fbac30c1c
+  sha256: bed6a1ef4bf4fd49703782ff4732f417198b500cdd007f832ba83ba1ee5f3ab3
 
 
 build:
@@ -186,7 +186,7 @@ outputs:
         - h5netcdf >=1.7.3,<2
         - pandas >=2.2.2,<4
         - sqlalchemy >=2,<3
-        - xarray >=2024.6,<2027
+        - xarray >=2025.6.0,<2027
         - xlsxwriter >=3.0.9,<4
         - zarr >=3.1,<4
     tests:
@@ -423,7 +423,7 @@ outputs:
         - ${{ pin_subpackage(name, exact=True) }}
         - pybufrkit >=0.2,<1
         - wradlib >=2.0.1,<3
-        - xradar >=0.2,<1
+        - xradar >=0.8,<1
     tests:
       - python:
           imports:
