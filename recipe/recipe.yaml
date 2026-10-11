@@ -391,25 +391,29 @@ outputs:
             - ${{ python_min }}.*
             - "*"
 
-  - package:
-      name: ${{ name }}-with-radar
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python ${{ python_min }}.*
-      run:
-        - python >=${{ python_min }}
-        - ${{ pin_subpackage(name, exact=True) }}
-        - h5py >=3.1,<4
-    tests:
-      - python:
-          imports:
-            - wetterdienst
-          pip_check: true
-          python_version:
-            - ${{ python_min }}.*
-            - "*"
+  # Upstream's `radar` extra needs `tabula`, which conda-forge does not
+  # publish, so the extra cannot be built as upstream declares it.
+  # - package:
+  #     name: ${{ name }}-with-radar
+  #   build:
+  #     noarch: python
+  #   requirements:
+  #     host:
+  #       - python ${{ python_min }}.*
+  #     run:
+  #       - python >=${{ python_min }}
+  #       - ${{ pin_subpackage(name, exact=True) }}
+  #       - h5netcdf >=1.7.3
+  #       - h5py >=3.11,<4
+  #       - tabula >=1.0.5
+  #   tests:
+  #     - python:
+  #         imports:
+  #           - wetterdienst
+  #         pip_check: true
+  #         python_version:
+  #           - ${{ python_min }}.*
+  #           - "*"
 
   - package:
       name: ${{ name }}-with-radarplus
