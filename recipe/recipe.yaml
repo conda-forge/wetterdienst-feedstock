@@ -42,7 +42,7 @@ outputs:
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
-        - polars >=1.43.0,<2
+        - polars >=1.43.0,<3
         # start polars[calamine]
         - fastexcel >=0.9
         # end polars[calamine]
@@ -61,7 +61,6 @@ outputs:
         - tqdm >=4.64,<5
         - typing_extensions >=4.15.0,<5
         - python-tzdata >=2024.2
-        - tzfpy >=0.15.2,<3
     tests:
       - python:
           imports:
