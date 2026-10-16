@@ -450,6 +450,7 @@ outputs:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - fastapi >=0.142,<1
+        - starlette >=1.3,<2
         - uvicorn-standard >=0.30,<1
     tests:
       - python:
