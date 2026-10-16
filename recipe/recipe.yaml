@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.154.0"
+  version: "0.155.0"
 
 recipe:
   name: ${{ name|lower }}-split
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 55502b7ac07270aca8d8bb6cb895de44652b3b79af081e4a924ec9da8aeba3f9
+  sha256: 46fb6131b9c78b5199d37c795ce7c27fa39b3aaeda47533cbf63334e9dd82573
 
 
 build:
@@ -450,6 +450,7 @@ outputs:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - fastapi >=0.142,<1
+        - starlette >=1.3,<2
         - uvicorn-standard >=0.30,<1
     tests:
       - python:
