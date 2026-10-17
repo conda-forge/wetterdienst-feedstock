@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.157.0"
+  version: "0.158.0"
 
 recipe:
   name: ${{ name|lower }}-split
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: dc88a6701095fe937dcbbc788008621a5702969a8f53b2204da534721edc5b63
+  sha256: e523c6b258d84ad646a96a54eb347c309d646326c85cca6feb693ff7fed28dff
 
 
 build:
