@@ -42,7 +42,7 @@ outputs:
         - measurement >=3.2,<4
         - platformdirs >=4,<5
 
-        - polars >=1.43.0,<3
+        - polars >=1.43.2,<3
         # start polars[calamine]
         - fastexcel >=0.9
         # end polars[calamine]
