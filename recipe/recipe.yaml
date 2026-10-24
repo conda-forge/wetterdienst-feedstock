@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.173.0"
+  version: "0.174.0"
 
 recipe:
   name: ${{ name|lower }}-split
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 4cf421f49484727b81cf6569d77d21ef89a9f88cf40776baf4143d95d82434e5
+  sha256: df5a8bb24a67395652f3f6e40ead7e805edf10ce943de6f41ef1b583be3c4945
 
 
 build:
@@ -29,14 +29,14 @@ outputs:
       host:
         - python ${{ python_min }}.*
         - pip
-        - uv-build >=0.9.21,<0.13.0
+        - uv-build >=0.9.21,<0.14.0
       run:
         - python >=${{ python_min }},<4.0
-        - aiohttp >=3.14.0,<4
+        - aiohttp >=3.14.4,<4
         - certifi >=2026.10.19
         - click >=8.2,<9
 
-        - fsspec >=2024.6
+        - fsspec >=2026.6.0
 
         - lxml >=4.9.1,<7
         - measurement >=3.2,<4
@@ -55,7 +55,6 @@ outputs:
         - pydantic-settings >=2.14.0,<3
         - python-dateutil >=2.8.2,<3
         - rapidfuzz >=3.1,<4
-        - diskcache >=5.6.3,<6
         - stamina >=25.1.0,<27
         - tabulate >=0.9,<1
         - tqdm >=4.64,<5
@@ -123,7 +122,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - python-duckdb >=1,<2
+        - python-duckdb >=1.1.0,<2
         - pandas >=2.2.2,<4
     tests:
       - python:
@@ -230,9 +229,10 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - influxdb >=5.3,<6
+        - influxdb >=5.3.1,<6
         - influxdb-client >=1.18,<2
         - influxdb3-python >=0.3,<1
+        - msgpack-python >=1.2.1,<2
     tests:
       - python:
           imports:
@@ -295,7 +295,7 @@ outputs:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
         - wetterdienst-with-restapi
-        - fastmcp >=4,<5
+        - fastmcp >=4.1.2,<5
         - httpx2 >=2.12,<3
     tests:
       - python:
@@ -338,7 +338,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - pypdf >=3.12.1,<7
+        - pypdf >=6.21.2,<7
     tests:
       - python:
           imports:
@@ -469,7 +469,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - python-duckdb >=1,<2
+        - python-duckdb >=1.1.0,<2
     tests:
       - python:
           imports:
