@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.178.0"
+  version: "0.179.0"
 
 recipe:
   name: ${{ name|lower }}-split
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 6dc1b07bc5825fedd9ae1f8531c45aadce4015ab731cf008d5bdb37d30e4db50
+  sha256: c88c34be98edfd49ae976ab32adeb4d0f51c05a05b27e9bb3557e78a74d77b3f
 
 
 build:
@@ -35,6 +35,7 @@ outputs:
         - aiohttp >=3.14.4,<4
         - certifi >=2026.10.19
         - click >=8.2,<9
+        - filelock >=3.30,<5
 
         - fsspec >=2026.6.0
 
