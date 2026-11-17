@@ -1,6 +1,6 @@
 context:
   name: wetterdienst
-  version: "0.189.1"
+  version: "0.190.0"
 
 recipe:
   name: ${{ name|lower }}-split
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 9f7b570b96d4ce97dba24734426abe8af95837f42579a7aafbfef0a195506196
+  sha256: 225758ca4e84a3a102c6322961e6a3a93e0f2c3e00ff2c7cf8399cc202ac65f3
 
 
 build:
@@ -201,29 +201,6 @@ outputs:
             - ${{ python_min }}.*
             - "*"
 
-  # wetterdienst 0.187.0 removed the `knmi` extra: KNMI is read from its EDR API, which needs nothing
-  # beyond wetterdienst itself. Kept as an empty output, pinning only wetterdienst, so that existing
-  # installs keep upgrading (an output that is no longer built would hold wetterdienst back at its
-  # last version). To be removed with wetterdienst 1.0.
-  - package:
-      name: ${{ name }}-with-knmi
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python ${{ python_min }}.*
-      run:
-        - python >=${{ python_min }}
-        - ${{ pin_subpackage(name, exact=True) }}
-    tests:
-      - python:
-          imports:
-            - wetterdienst
-          pip_check: true
-          python_version:
-            - ${{ python_min }}.*
-            - "*"
-
   - package:
       name: ${{ name }}-with-influxdb
     build:
@@ -260,28 +237,6 @@ outputs:
         - scipy >=1.14.1,<2
         - shapely >=2.0.6,<3
         - utm >=0.8,<1
-    tests:
-      - python:
-          imports:
-            - wetterdienst
-          pip_check: true
-          python_version:
-            - ${{ python_min }}.*
-            - "*"
-
-  # wetterdienst has had no `matplotlib` extra since January 2026 (it uses no matplotlib). Kept as an
-  # empty output, pinning only wetterdienst, so that existing installs keep upgrading. To be removed
-  # with wetterdienst 1.0.
-  - package:
-      name: ${{ name }}-with-matplotlib
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python ${{ python_min }}.*
-      run:
-        - python >=${{ python_min }}
-        - ${{ pin_subpackage(name, exact=True) }}
     tests:
       - python:
           imports:
@@ -345,7 +300,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - pypdf >=6.21.2,<7
+        - pypdf >=6.21.4,<7
     tests:
       - python:
           imports:
