@@ -282,7 +282,6 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - matplotlib-base >=3.3,<4
     tests:
       - python:
           imports:
