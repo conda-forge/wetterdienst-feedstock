@@ -201,29 +201,6 @@ outputs:
             - ${{ python_min }}.*
             - "*"
 
-  # wetterdienst 0.187.0 removed the `knmi` extra: KNMI is read from its EDR API, which needs nothing
-  # beyond wetterdienst itself. Kept as an empty output, pinning only wetterdienst, so that existing
-  # installs keep upgrading (an output that is no longer built would hold wetterdienst back at its
-  # last version). To be removed with wetterdienst 1.0.
-  - package:
-      name: ${{ name }}-with-knmi
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python ${{ python_min }}.*
-      run:
-        - python >=${{ python_min }}
-        - ${{ pin_subpackage(name, exact=True) }}
-    tests:
-      - python:
-          imports:
-            - wetterdienst
-          pip_check: true
-          python_version:
-            - ${{ python_min }}.*
-            - "*"
-
   - package:
       name: ${{ name }}-with-influxdb
     build:
@@ -260,28 +237,6 @@ outputs:
         - scipy >=1.14.1,<2
         - shapely >=2.0.6,<3
         - utm >=0.8,<1
-    tests:
-      - python:
-          imports:
-            - wetterdienst
-          pip_check: true
-          python_version:
-            - ${{ python_min }}.*
-            - "*"
-
-  # wetterdienst has had no `matplotlib` extra since January 2026 (it uses no matplotlib). Kept as an
-  # empty output, pinning only wetterdienst, so that existing installs keep upgrading. To be removed
-  # with wetterdienst 1.0.
-  - package:
-      name: ${{ name }}-with-matplotlib
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python ${{ python_min }}.*
-      run:
-        - python >=${{ python_min }}
-        - ${{ pin_subpackage(name, exact=True) }}
     tests:
       - python:
           imports:
