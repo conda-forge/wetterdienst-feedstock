@@ -282,6 +282,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
+        - matplotlib-base >=3.3,<4
     tests:
       - python:
           imports:
@@ -345,7 +346,7 @@ outputs:
       run:
         - python >=${{ python_min }}
         - ${{ pin_subpackage(name, exact=True) }}
-        - pypdf >=6.21.2,<7
+        - pypdf >=6.21.4,<7
     tests:
       - python:
           imports:
