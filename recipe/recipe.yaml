@@ -37,6 +37,7 @@ outputs:
         - click >=8.3.2,<9
         - filelock >=3.30,<5
 
+        # fsspec[http] extra already accounted for
         - fsspec >=2026.6.0
 
         - lxml >=4.9.1,<7
